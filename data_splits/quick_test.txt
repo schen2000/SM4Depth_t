@@ -1,1 +1,1 @@
-../rundir/imgs/1.jpg ../rundir/imgs/depth/ 400 400
+../data/test_imgs/2.jpg ../data/test_imgs/depth/2 400 400
