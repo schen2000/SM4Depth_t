@@ -9,7 +9,7 @@ import os, cv2
 import h5py
 import random
 
-from utils import DistributedSamplerNoEvenlyDivisible, WeightBatchSampler, auto_fov_fitting, auto_fov_fitting_test, DistributedWeightBatchSampler
+from utils import DistributedSamplerNoEvenlyDivisible, auto_fov_fitting, auto_fov_fitting_test
 
 
 def _is_pil_image(img):
@@ -30,6 +30,7 @@ class SM4DataLoader(object):
     def __init__(self, args, mode, val_path=None):
         if mode == 'train':
             # The training code will be released.
+            return
 
         elif mode == 'online_eval':
             self.testing_samples = DataLoadPreprocess(args, mode, transform=preprocessing_transforms(mode), is_for_online_eval=False, val_path=val_path)
@@ -58,7 +59,7 @@ class DataLoadPreprocess(Dataset):
             with open(val_path, 'r') as f:
                 self.filenames = f.readlines()
         else:
-            with open(args.filenames_file, 'r') as f:
+            with open(args.filenames_file_eval, 'r') as f:
                 self.filenames = f.readlines()
 
         self.mode = mode
