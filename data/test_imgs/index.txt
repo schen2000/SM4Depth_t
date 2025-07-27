@@ -1,0 +1,2 @@
+../data/test_imgs/1.jpg ../data/test_imgs/output/1 400 400
+../data/test_imgs/2.jpg ../data/test_imgs/output/2 400 400
